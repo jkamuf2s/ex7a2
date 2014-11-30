@@ -10,7 +10,7 @@ import javax.ejb.Stateless;
 public class RegisterAtConference implements RegisterAtConferenceRemote {
 
     @Override
-    public String registerPerson() {
+    public String registerPerson(Person p) {
         return "Person successfully registered at the conference";
     }
 
