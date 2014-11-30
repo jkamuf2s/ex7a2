@@ -14,6 +14,6 @@ import javax.ejb.Remote;
 @Remote
 public interface RegisterAtConferenceRemote {
 
-    String registerPerson();
+    String registerPerson(Person p);
 
 }
