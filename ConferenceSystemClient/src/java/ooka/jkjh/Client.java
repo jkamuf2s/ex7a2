@@ -7,7 +7,7 @@ package ooka.jkjh;
 
 import javax.ejb.EJB;
 import ooka.jkjh.ejb.RegisterAtConferenceRemote;
-
+import ooka.jkjh.ejb.Person;
 /**
  *
  * @author JAYDESKTOP
@@ -18,6 +18,9 @@ public class Client {
     private static RegisterAtConferenceRemote registerAtConference;
 
     public void run() {
+        Person p = new Person("Jochen","Kamuf","Participant");
+        String result = Client.registerAtConference.registerPerson(p);
+        System.out.println(result);
 
     }
 
