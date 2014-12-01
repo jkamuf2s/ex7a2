@@ -23,14 +23,15 @@ public class PersonDao {
     // Stores a new guest: 
     public void persist(Person p) {
 
-        PersonEntity pe = new PersonEntity(p.getFirstName());
+        PersonEntity pe = new PersonEntity(p.getFirstName(),p.getLastName(),p.getRole());
         em.persist(pe);
     }
 
     // Retrieves all the guests:
     public List<PersonEntity> getAllPersons() {
         TypedQuery<PersonEntity> query = em.createQuery(
-                "SELECT g FROM Guest g ORDER BY g.id", PersonEntity.class);
-        return query.getResultList();
+                "SELECT p FROM PersonEntity p", PersonEntity.class);
+        List<PersonEntity> results = query.getResultList();
+        return results;
     }
 }
