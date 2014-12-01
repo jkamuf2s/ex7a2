@@ -27,11 +27,19 @@ public class Client {
         result = Client.registerAtConference.registerPerson(inputPerson);
         System.out.println(result);
 
+        inputPerson = new Person("Sebastian", "Stange", "Autor");
+        result = Client.registerAtConference.registerPerson(inputPerson);
+        System.out.println(result);
+
         Person resultPerson = Client.registerAtConference.getPersonByID(1);
         System.out.println("Gathered Person:" + resultPerson.getFirstName() + " " + resultPerson.getLastName() + ", with the role: " + resultPerson.getRole());
 
         resultPerson = Client.registerAtConference.getPersonByID(2);
         System.out.println("Gathered Person:" + resultPerson.getFirstName() + " " + resultPerson.getLastName() + ", with the role: " + resultPerson.getRole());
+
+        resultPerson = Client.registerAtConference.getPersonByID(3);
+        System.out.println("Gathered Person:" + resultPerson.getFirstName() + " " + resultPerson.getLastName() + ", with the role: " + resultPerson.getRole());
+
     }
 
     /**
