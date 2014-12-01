@@ -15,9 +15,9 @@ public class Person implements java.io.Serializable {
     private String firstName;
     private String role;
 
-    public Person(String lastName, String firstName, String role) {
-        this.lastName = firstName;
-        this.firstName = lastName;
+    public Person(String firstName, String lastName, String role) {
+        this.lastName = lastName;
+        this.firstName = firstName;
         this.role = role;
     }
 
