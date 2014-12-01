@@ -36,10 +36,6 @@ public class PersonEntity implements Serializable {
         return id;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getLastName() {
         return lastName;
     }
@@ -51,8 +47,6 @@ public class PersonEntity implements Serializable {
     public String getRole() {
         return role;
     }
-    
-    
 
     @Override
     public int hashCode() {
