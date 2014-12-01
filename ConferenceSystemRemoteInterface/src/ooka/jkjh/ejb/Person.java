@@ -9,15 +9,15 @@ package ooka.jkjh.ejb;
  *
  * @author JAYDESKTOP
  */
-public class Person implements java.io.Serializable{
-    
+public class Person implements java.io.Serializable {
+
     private String lastName;
     private String firstName;
     private String role;
 
     public Person(String lastName, String firstName, String role) {
-        this.lastName = lastName;
-        this.firstName = firstName;
+        this.lastName = firstName;
+        this.firstName = lastName;
         this.role = role;
     }
 
@@ -44,7 +44,5 @@ public class Person implements java.io.Serializable{
     public void setRole(String role) {
         this.role = role;
     }
-    
-    
-}
 
+}

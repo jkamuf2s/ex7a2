@@ -16,4 +16,6 @@ public interface RegisterAtConferenceRemote {
 
     String registerPerson(Person p);
 
+    Person getPersonByID(int id);
+
 }
