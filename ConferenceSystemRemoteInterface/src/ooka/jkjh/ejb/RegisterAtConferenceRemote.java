@@ -14,8 +14,8 @@ import javax.ejb.Remote;
 @Remote
 public interface RegisterAtConferenceRemote {
 
-    String registerPerson(Person p);
+    Long registerPerson(PersonEntity p);
 
-    Person getPersonByID(int id);
+    PersonEntity getPersonByID(Long id);
 
 }
