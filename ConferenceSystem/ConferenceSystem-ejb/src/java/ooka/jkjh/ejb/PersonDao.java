@@ -21,10 +21,11 @@ public class PersonDao {
     private EntityManager em;
 
     // Stores a new guest: 
-    public void persist(Person p) {
+    public Long persist(PersonEntity p) {
 
-        PersonEntity pe = new PersonEntity(p.getFirstName(),p.getLastName(),p.getRole());
-        em.persist(pe);
+        em.persist(p);
+        em.flush();
+        return p.getId();
     }
 
     // Retrieves all the guests:

@@ -2,7 +2,6 @@ package ooka.jkjh.ejb;
 
 import java.util.List;
 import javax.ejb.EJB;
-import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 
 /**
@@ -16,23 +15,21 @@ public class RegisterAtConference implements RegisterAtConferenceRemote {
     private PersonDao personDao;
 
     @Override
-    public String registerPerson(Person p) {
+    public Long registerPerson(PersonEntity p) {
 
-        personDao.persist(p);
-
-        return "Person:" + p.getFirstName() + " " + p.getLastName() + " successfully registered at the conference";
+        return personDao.persist(p);
 
     }
 
     @Override
-    public Person getPersonByID(int id) {
+    public PersonEntity getPersonByID(Long id) {
 
         List<PersonEntity> personEntityList = personDao.getAllPersons();
 
         for (PersonEntity personEntity : personEntityList) {
-            if (id == personEntity.getId()) {
-                Person resultPerson = new Person(personEntity.getFirstName(), personEntity.getLastName(), personEntity.getRole());
-                return resultPerson;
+            if (id.equals(personEntity.getId())) {
+
+                return personEntity;
             }
 
         }
