@@ -7,7 +7,7 @@ package ooka.jkjh;
 
 import javax.ejb.EJB;
 import ooka.jkjh.ejb.RegisterAtConferenceRemote;
-import ooka.jkjh.ejb.Person;
+import ooka.jkjh.ejb.PersonEntity;
 
 /**
  *
@@ -19,26 +19,18 @@ public class Client {
     private static RegisterAtConferenceRemote registerAtConference;
 
     public void run() {
-        Person inputPerson = new Person("Jochen", "Kamuf", "Participant");
-        String result = Client.registerAtConference.registerPerson(inputPerson);
-        System.out.println(result);
 
-        inputPerson = new Person("Jon", "Herrmann", "Reviewer");
-        result = Client.registerAtConference.registerPerson(inputPerson);
-        System.out.println(result);
+        PersonEntity person = new PersonEntity("Jochen", "Kamuf", "Reviewer");
+        Long personKey = Client.registerAtConference.registerPerson(person);
 
-        inputPerson = new Person("Sebastian", "Stange", "Autor");
-        result = Client.registerAtConference.registerPerson(inputPerson);
-        System.out.println(result);
+        person = Client.registerAtConference.getPersonByID(personKey);
+        System.out.println("Gathered Person:" + person.getFirstName() + " " + person.getLastName() + ", with the role: " + person.getRole());
 
-        Person resultPerson = Client.registerAtConference.getPersonByID(1);
-        System.out.println("Gathered Person:" + resultPerson.getFirstName() + " " + resultPerson.getLastName() + ", with the role: " + resultPerson.getRole());
+        person = new PersonEntity("Jon", "Herrmann", "Autor");
+        personKey = Client.registerAtConference.registerPerson(person);
 
-        resultPerson = Client.registerAtConference.getPersonByID(2);
-        System.out.println("Gathered Person:" + resultPerson.getFirstName() + " " + resultPerson.getLastName() + ", with the role: " + resultPerson.getRole());
-
-        resultPerson = Client.registerAtConference.getPersonByID(3);
-        System.out.println("Gathered Person:" + resultPerson.getFirstName() + " " + resultPerson.getLastName() + ", with the role: " + resultPerson.getRole());
+        person = Client.registerAtConference.getPersonByID(personKey);
+        System.out.println("Gathered Person:" + person.getFirstName() + " " + person.getLastName() + ", with the role: " + person.getRole());
 
     }
 
